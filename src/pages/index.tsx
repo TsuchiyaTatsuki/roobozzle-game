@@ -1,24 +1,15 @@
-import PuzzleGrid from '@/components/PuzzleGrid';
-import Robot from '@/components/Robot';
+import Board from '@/components/Board';
+import ControlPanel from '@/components/ControlPanel';
+import React from 'react';
 
-const MyRobozzleGame = () => {
-  // 仮想のパズルデータ（例として二次元配列を使用）
-  const puzzleData = [
-    ['wall', 'wall', 'wall', 'wall', 'wall'],
-    ['wall', '', '', '', 'wall'],
-    ['wall', '', 'goal', '', 'wall'],
-    ['wall', '', '', '', 'wall'],
-    ['wall', 'wall', 'wall', 'wall', 'wall'],
-  ];
-
+const Game: React.FC = () => {
   return (
-    // <Center h="100vh">
     <div>
-      <PuzzleGrid width={5} height={5} puzzleData={puzzleData} />
-      <Robot x={1} y={1} direction="down" />
+      <h1>RoboZZle Game</h1>
+      <Board />
+      <ControlPanel />
     </div>
-    // </Center>
   );
 };
 
-export default MyRobozzleGame;
+export default Game;
