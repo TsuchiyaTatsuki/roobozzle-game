@@ -1,11 +1,7 @@
 import React from 'react';
 
 const Robot: React.FC = () => {
-  return (
-    <div>
-      <h3>Robot</h3>
-    </div>
-  );
+  return <div>Robot</div>;
 };
 
 export default Robot;
