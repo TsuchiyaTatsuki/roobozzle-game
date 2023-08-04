@@ -88,7 +88,7 @@ const Game: React.FC = () => {
         flexDirection: 'column',
       }}
     >
-      <h1>RoboZZle Game</h1>
+      <h1>Robozzle Game</h1>
       <Board state={state} />
       <ControlPanel dispatch={dispatch} gameEnded={state.gameEnded} />
       {state.gameEnded && <p>Game clear!</p>}
