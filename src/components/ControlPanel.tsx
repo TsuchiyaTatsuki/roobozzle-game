@@ -1,11 +1,19 @@
 // ControlPanel.tsx
+import { ActionIcon, Button, Group, Stack } from '@mantine/core';
 import React from 'react';
+import {
+  ArrowNarrowDown,
+  ArrowNarrowLeft,
+  ArrowNarrowRight,
+  ArrowNarrowUp,
+} from 'tabler-icons-react';
 
 type Props = {
   dispatch: React.Dispatch<any>;
+  gameEnded: boolean;
 };
 
-const ControlPanel: React.FC<Props> = ({ dispatch }) => {
+const ControlPanel: React.FC<Props> = ({ dispatch, gameEnded }) => {
   const handleMoveUp = () => {
     dispatch({ type: 'MOVE_ROBOT', payload: { row: -1, col: 0 } });
   };
@@ -25,12 +33,24 @@ const ControlPanel: React.FC<Props> = ({ dispatch }) => {
 
   return (
     <div>
-      <h2>Control Panel</h2>
-      <button onClick={handleMoveUp}>Move Up</button>
-      <button onClick={handleMoveDown}>Move Down</button>
-      <button onClick={handleMoveLeft}>Move Left</button>
-      <button onClick={handleMoveRight}>Move Right</button>
-      <button onClick={handleRestartGame}>Restart Game</button>
+      <Stack>
+        <h2>Control Panel</h2>
+        <Group>
+          <ActionIcon onClick={handleMoveUp} disabled={gameEnded} size="xl">
+            <ArrowNarrowUp size="5rem" />
+          </ActionIcon>
+          <ActionIcon onClick={handleMoveDown} disabled={gameEnded} size="xl">
+            <ArrowNarrowDown size="5rem" />
+          </ActionIcon>
+          <ActionIcon onClick={handleMoveLeft} disabled={gameEnded} size="xl">
+            <ArrowNarrowLeft size="5rem" />
+          </ActionIcon>
+          <ActionIcon onClick={handleMoveRight} disabled={gameEnded} size="xl">
+            <ArrowNarrowRight size="5rem" />
+          </ActionIcon>
+        </Group>
+        <Button onClick={handleRestartGame}>リスタート</Button>
+      </Stack>
     </div>
   );
 };
